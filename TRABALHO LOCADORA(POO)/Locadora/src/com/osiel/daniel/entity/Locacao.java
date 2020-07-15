@@ -1,0 +1,75 @@
+package com.osiel.daniel.entity;
+
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
+
+public class Locacao {
+
+	private Long id;
+	private Date dataEmprestimo;
+	private Date dataDevolucao;
+	private String observacao;
+	private Cliente cliente;
+	private Filme filme;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+
+	public void setDataEmprestimo(Date dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
+
+	public Date getDataDevolucao() {
+		return dataDevolucao;
+	}
+
+	public void setDataDevolucao(Date dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Filme getFilme() {
+		return filme;
+	}
+
+	public void setFilme(Filme filme) {
+		this.filme = filme;
+	}
+
+	public String getDataFormatada() {
+		DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return this.dataEmprestimo.toLocalDate().format(dataFormatada).toString();
+
+	}
+
+	public String getDataFormatada2() {
+		DateTimeFormatter dataFormatada2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return this.dataDevolucao.toLocalDate().format(dataFormatada2).toString();
+
+	}
+
+}
